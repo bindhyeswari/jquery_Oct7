@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script>
+
+        // wait for the page to load
+        // this is not required if your script is at the bottom of the body tag
+        // old way - $(document).ready(function () {})
+        $(function () {
+
+            var links = ['Home', 'Content', 'About Us', 'Links'];
+
+            var $documentBody = $(document.body);
+
+            document.body.className = 'someclass'; // HTML DOM way
+            $(document.body).addClass('onemoreclass'); // jquery way
+            $documentBody.addClass('somethingelseclass'); // one more way --> stored the jquery variable
+
+            // create the nav element
+            // append it to body
+            // apply a class of nav
+            var $nav = $('<nav>').appendTo(document.body).addClass('nav');
+
+            // create a ul element and append it to the nav element
+            // apply a class or nav on the ul element
+            var $ul = $('<ul>').appendTo($nav).addClass('nav');
+
+            // create the li elements in a loop and use them
+            for (var i = 0, len = links.length; i < len; i++) {
+                $('<li>').appendTo($ul).html(links[i]);
+            }
+
+            $('#email').attr('placeholder', 'email');
+
+            console.log($('#name').attr('placeholder'));
+
+            var $div = $(document.body.firstElementChild);
+            console.log($div.hasClass(''));
+
+            $div.click(function () {
+                $(this).toggleClass('test');
+            });
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+<div class="">Toggle a class</div>
+<input type="text" id="email"/>
+<input type="text" id="name" placeholder="name"/>
+
+</body>
+</html>
